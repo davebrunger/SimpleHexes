@@ -1,4 +1,6 @@
-﻿namespace SimpleHexes;
+﻿using System.Collections.Immutable;
+
+namespace SimpleHexes;
 
 public record Hex(int Q, int R)
 {

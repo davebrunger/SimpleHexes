@@ -7,7 +7,7 @@ public static class HexExtensions
         return hex + direction.AsHex();
     }
 
-    public static IEnumerable<Hex> GetNeighbours(this Hex hex, OrthogonalDirection direction)
+    public static IEnumerable<Hex> GetNeighbours(this Hex hex)
     {
         return Hex.OrthogonalDirections.Select(d => d + hex);
     }
@@ -33,7 +33,7 @@ public static class HexExtensions
         var n = source.GetDistanceTo(target);
         if (n == 0)
         {
-            return new[] { source };
+            return [source];
         }
         var adjustedSource = source + epsilon;
         return Enumerable.Range(0, n + 1)
@@ -60,13 +60,13 @@ public static class HexExtensions
         }
         if (source.IsOnDiagonalFrom(target))
         {
-            return new[]
-            {
+            return
+            [
                 source.GetLineTo(target, DoubleHex.Episilon),
                 source.GetLineTo(target, -DoubleHex.Episilon)
-            };
+            ];
         }
-        return new[] { source.GetLineTo(target) };
+        return [source.GetLineTo(target)];
     }
 
     public static bool IsOnDiagonalFrom(this Hex source, Hex target)
