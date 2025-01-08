@@ -1,9 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<LangVersion>default</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageId>SimpleHexes</PackageId>
+    	<PackageVersion>1.0.0</PackageVersion>
+    	<Authors>David Brunger</Authors>
+		<Title>Simple Hexes</Title>
+    	<Description>A very simple implementation of hex based co-ordinates</Description>
+		<Copyright>Copyright © David Brunger 2024</Copyright>
+		<PackageProjectUrl>https://github.com/davebrunger/SimpleHexes</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/davebrunger/SimpleHexes.git</RepositoryUrl>
+		<PackageTags>hex hexes coordinates</PackageTags>
+		<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.Collections.Immutable" Version="9.0.0" />
+	</ItemGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
 
 </Project>
