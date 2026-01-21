@@ -39,7 +39,7 @@ var b = new Hex(2, -1);
 var c = a + b;
 
 // Distance (hex distance)
-var d = Hex.GetDistanceTo(a, b);
+var d = a.GetDistanceTo(b);
 
 // Neighbours
 foreach (var n in a.GetNeighbours())
@@ -60,7 +60,7 @@ foreach (var n in a.GetNeighbours())
 ## Common operations
 ### Line drawing
 ```csharp
-foreach (var h in hexA.GetLineTo(hexB))
+foreach (var h in a.GetLineTo(b))
 {
     ...
 }
