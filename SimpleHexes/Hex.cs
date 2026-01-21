@@ -1,6 +1,4 @@
-﻿using System.Collections.Immutable;
-
-namespace SimpleHexes;
+﻿namespace SimpleHexes;
 
 public record Hex(int Q, int R)
 {
@@ -22,21 +20,35 @@ public record Hex(int Q, int R)
     public static Hex Down { get; } = new Hex(-1, 2);
     public static Hex DiagonalDownLeft { get; } = new Hex(-2, 1);
 
-    public static ImmutableList<Hex> OrthogonalDirections { get; } = ImmutableList<Hex>.Empty
-        .Add(UpLeft)
-        .Add(UpRight)
-        .Add(Right)
-        .Add(DownRight)
-        .Add(DownLeft)
-        .Add(Left);
+    private static Hex[] orthogonalDirections { get; } = [
+        UpLeft,
+        UpRight,
+        Right,
+        DownRight,
+        DownLeft,
+        Left
+    ];
 
-    public static ImmutableList<Hex> DiagonalDirections { get; } = ImmutableList<Hex>.Empty
-        .Add(DiagonalUpLeft)
-        .Add(Up)
-        .Add(DiagonalUpRight)
-        .Add(DiagonalDownRight)
-        .Add(Down)
-        .Add(DiagonalDownLeft);
+#if NETSTANDARD2_1_OR_GREATER
+    public static ReadOnlySpan<Hex> OrthogonalDirections => orthogonalDirections;
+#else
+    public static IReadOnlyList<Hex> OrthogonalDirections => [.. orthogonalDirections];
+#endif
+
+    private static Hex[] diagonalDirections { get; } = [
+        DiagonalUpLeft,
+        Up,
+        DiagonalUpRight,
+        DiagonalDownRight,
+        Down,
+        DiagonalDownLeft
+    ];
+
+#if NETSTANDARD2_1_OR_GREATER
+    public static ReadOnlySpan<Hex> DiagonalDirections => DiagonalDirections;
+#else
+    public static IReadOnlyList<Hex> DiagonalDirections => [.. diagonalDirections];
+#endif
 
     public static Hex operator +(Hex a, Hex b)
     {

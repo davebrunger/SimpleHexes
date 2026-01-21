@@ -7,10 +7,22 @@ public static class HexExtensions
         return hex + direction.AsHex();
     }
 
-    public static IEnumerable<Hex> GetNeighbours(this Hex hex)
+#if NETSTANDARD2_1_OR_GREATER
+    public static ReadOnlySpan<Hex> GetNeighbours(this Hex hex)
     {
-        return Hex.OrthogonalDirections.Select(d => d + hex);
+        var result = new Hex[Hex.OrthogonalDirections.Length];
+        for (int i = 0; i < Hex.OrthogonalDirections.Length; i++)
+        {
+            result[i] = Hex.OrthogonalDirections[i] + hex;
+        }
+        return result;
     }
+#else
+    public static IReadOnlyList<Hex> GetNeighbours(this Hex hex)
+    {
+        return [.. Hex.OrthogonalDirections.Select(d => d + hex)];
+    }
+#endif
 
     public static Hex Add(this Hex a, Hex b)
     {
