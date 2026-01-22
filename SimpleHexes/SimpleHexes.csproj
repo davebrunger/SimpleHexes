@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>SimpleHexes</PackageId>
-    	<PackageVersion>1.0.0</PackageVersion>
+    	<PackageVersion>1.0.1</PackageVersion>
     	<Authors>David Brunger</Authors>
 		<Title>Simple Hexes</Title>
     	<Description>A very simple implementation of hex based co-ordinates</Description>
