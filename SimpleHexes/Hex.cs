@@ -1,7 +1,19 @@
 ﻿namespace SimpleHexes;
 
+/// <summary>
+/// Represents a hex coordinate using axial (q, r) coordinates.
+/// </summary>
+/// <param name="Q">The axial coordinate Q.</param>
+/// <param name="R">The axial coordinate R.</param>
+/// <remarks>
+/// This type is immutable and inexpensive to copy.
+/// Distance and neighbour calculations follow standard hex-grid rules.
+/// </remarks>
 public record Hex(int Q, int R)
 {
+    /// <summary>
+    /// Gets the S coordinate, derived from Q and R.
+    /// </summary>
     public int S => -(Q + R);
 
     // Othogonal Hexes
