@@ -4,9 +4,9 @@ A small, dependency-free hex-grid coordinate library for .NET.
 
 **SimpleHexes** provides a clear, minimal implementation of hex-based coordinates and common hex-grid operations, suitable for games, simulations, and tooling where you want correctness and readability without framework bloat.
 
-- **NuGet:** `SimpleHexes`
+- **NuGet:** [`SimpleHexes`](https://www.nuget.org/packages/SimpleHexes)
 - **Targets:** .NET Standard 2.0 and 2.1
-- **Licence:** MIT
+- **Licence:** [MIT](https://raw.githubusercontent.com/davebrunger/SimpleHexes/refs/heads/main/LICENSE)
 - **Repository:** https://github.com/davebrunger/SimpleHexes
 
 ## Features
